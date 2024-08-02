@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import ttk 
 import threading
 import unittest
+from tkinter import *
 
 
 
@@ -18,9 +19,15 @@ class Weatherapp(tk.Tk):
     
 
     def add_widgets(self):
+        options = ["Monday"," Tuesday", "Wednesday", "Thursday","Friday","Saturday","Wednesday"]
+        clicked = tk.StringVar()
+        clicked.set("Monday")
+        self.dropdown = tk.OptionMenu(self, clicked, *options )
+        self.dropdown.pack(padx=30, pady=50)
         
-        self.button = tk.Button(self, text="Click me", command=self )
-        self.button.pack()
+       
+       
+    
         
     def button_click():
         print("I got clicked")
