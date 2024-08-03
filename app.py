@@ -15,7 +15,7 @@ class Weatherapp(tk.Tk):
         super().__init__(master)
         self.master = master
         self.title("Weatherapp")
-        self.geometry("1900x1080")
+        self.geometry("1920x1080")
         self.add_background()
         self.add_widgets()
 
@@ -23,9 +23,12 @@ class Weatherapp(tk.Tk):
     #Adds Widgets
     def add_widgets(self):
         # Frame for Drop down menu
-        self.Dpframe = tk.Frame(self, bg='#FFFFFF', height=150, width=125, relief= RAISED)
+        self.Dpframe = tk.Frame(self, bg='#FFFFFF', relief= RAISED)
         logging.debug("Creating and packing Dpframe")
-        self.Dpframe.pack(padx=30, pady=30, fill= 'both', expand= True)
+        self.Dpframe.place(x=750,y=25)
+        self.Dpframe.config(height=25.5, width=297)
+        self.Dpframe.winfo_height()
+        self.Dpframe.winfo_width()
         logging.debug(f"Frame packed with properties: bg={self.Dpframe.cget('bg')}, \
                       width={self.Dpframe.winfo_width()}, height={self.Dpframe.winfo_height()}")
         #Ensures proper updating
@@ -36,8 +39,8 @@ class Weatherapp(tk.Tk):
         clicked = tk.StringVar()
         clicked.set("Monday")
         self.dropdown = tk.OptionMenu(self.Dpframe, clicked, *options)
-        self.dropdown.config(relief= RAISED, width=50, bg='#E4080A')
-        self.dropdown.pack(padx=30, pady=30, fill='both', expand=True)
+        self.dropdown.place(height= self.Dpframe.winfo_height(),width = self.Dpframe.winfo_width(),in_=self.Dpframe, )
+        self.dropdown.config(bg='#E4080A', relief= RAISED,)
         logging.debug(f"Dropdown created with properties: bg={self.dropdown.cget('bg')}, \
                       width={self.dropdown.winfo_width()}")
         # Ensures proper updating
@@ -49,7 +52,7 @@ class Weatherapp(tk.Tk):
         self.image = Image.open(self.bgimage)
         self.background= ImageTk.PhotoImage(self.image)
         self.background_label = tk.Label(self, image=self.background)
-        self.background_label.pack(fill='both',expand=True)
+        self.background_label.place(x=0, y=0)
         logging.debug("Background image added")
         # Ensures proper updating
         self.update_idletasks()
