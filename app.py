@@ -26,9 +26,10 @@ class Weatherapp(tk.Tk):
         self.Dpframe = tk.Frame(self, bg='#FFFFFF', height=150, width=125, relief= RAISED)
         logging.debug("Creating and packing Dpframe")
         self.Dpframe.pack(padx=30, pady=30, fill= 'both', expand= True)
-        logging.debug(f"Frame packed with properties: bg={self.Dpframe.cget('bg')}, 
+        logging.debug(f"Frame packed with properties: bg={self.Dpframe.cget('bg')}, \
                       width={self.Dpframe.winfo_width()}, height={self.Dpframe.winfo_height()}")
-        
+        #Ensures proper updating
+        self.update_idletasks()
         #Drop down Menu
         logging.debug("Creating and packing Dropdown")
         options = ["Monday"," Tuesday", "Wednesday", "Thursday","Friday","Saturday","Wednesday"]
@@ -37,8 +38,10 @@ class Weatherapp(tk.Tk):
         self.dropdown = tk.OptionMenu(self.Dpframe, clicked, *options)
         self.dropdown.config(relief= RAISED, width=50, bg='#E4080A')
         self.dropdown.pack(padx=30, pady=30, fill='both', expand=True)
-        logging.debug(f"Dropdown created with properties: bg={self.dropdown.cget('bg')}, width={self.dropdown.winfo_width()}")
-
+        logging.debug(f"Dropdown created with properties: bg={self.dropdown.cget('bg')}, \
+                      width={self.dropdown.winfo_width()}")
+        # Ensures proper updating
+        self.update_idletasks()
 
     def add_background(self):
         self.bgimage='H:/Python/Weatherapp/Images/Weatherbg.jpg'
@@ -48,6 +51,8 @@ class Weatherapp(tk.Tk):
         self.background_label = tk.Label(self, image=self.background)
         self.background_label.pack(fill='both',expand=True)
         logging.debug("Background image added")
+        # Ensures proper updating
+        self.update_idletasks()
         
        
 
