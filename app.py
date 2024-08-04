@@ -16,7 +16,7 @@ class Weatherapp(tk.Tk):
         self.master = master
         self.title("Weatherapp")
         self.geometry("1920x1080")
-        #self.add_background()
+        self.add_background()
         self.add_widgets()
 
     
@@ -104,33 +104,34 @@ class Weatherapp(tk.Tk):
         self.L10.configure(fg="black")
         logging.debug(f"Created Air Quality label")
         # Uv index Label
-        self.L11= tk.Label(self.Weatherframe, text= "UV Index", bg='white')
-        self.L11.place(x= 25, y=275, in_=self.Weatherframe)
-        self.L11.configure(fg="black")
-        logging.debug(f"Created Uv Index label")
+        #self.L11= tk.Label(self.Weatherframe, text= "UV Index", bg='white')
+        #self.L11.place(x= 25, y=275, in_=self.Weatherframe)
+        #self.L11.configure(fg="black")
+        #logging.debug(f"Created Uv Index label")
         # Feels like temp label
-        self.L12= tk.Label(self.Weatherframe, text= "Feels like", bg='white')
-        self.L12.place(x= 25, y=25, in_=self.Weatherframe)
-        self.L12.configure(fg="black")
-        logging.debug(f"Created Feels like label")
+        #self.L12= tk.Label(self.Weatherframe, text= "Feels like", bg='white')
+        #logging.debug(f"Created Feels like label")
         # Visibility label
-        self.L13= tk.Label(self.Weatherframe, text= "Visibility", bg='white')
-        self.L13.place(x= 25, y=25, in_=self.Weatherframe)
-        self.L13.configure(fg="black")
-        logging.debug(f"Created Visibility label")
+        #self.L13= tk.Label(self.Weatherframe, text= "Visibility", bg='white')
+        #self.L13.place(x= 25, y=325, in_=self.Weatherframe)
+        #self.L13.configure(fg="black")
+        #logging.debug(f"Created Visibility label")
         # Air Pressure label
-        self.L14= tk.Label(self.Weatherframe, text= "Air pressure", bg='white')
-        self.L14.place(x= 25, y=25, in_=self.Weatherframe)
-        self.L14.configure(fg="black")
-        logging.debug(f"Created Air pressure label")
+        #self.L14= tk.Label(self.Weatherframe, text= "Air pressure", bg='white')
+        #self.L14.place(x= 25, y=350, in_=self.Weatherframe)
+        #self.L14.configure(fg="black")
+        #logging.debug(f"Created Air pressure label")
+        #Storm warning label
+        #self.L15= tk.Label(self.Weatherframe, text= "Storm warning", bg='white')
+        #self.L15.place(x= 25, y=375, in_=self.Weatherframe)
+        #self.L15.configure(fg="black")
+        #logging.debug(f"Created Storm warning label")
 
 
 
 
 
         
-    
-    
     
     
     
