@@ -5,9 +5,12 @@ import unittest
 from tkinter import *
 from PIL import Image, ImageTk
 import logging
+from shared import get_selected_day, day_var, initialize_vars
+import fetch_weather
 
 # Logging processes
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+
 
 #Application class
 class Weatherapp(tk.Tk):
@@ -16,9 +19,11 @@ class Weatherapp(tk.Tk):
         self.master = master
         self.title("Weatherapp")
         self.geometry("1920x1080")
+        initialize_vars(master)
         self.add_background()
         self.add_widgets()
-
+        
+        
     
     #Adds Widgets
     def add_widgets(self):
@@ -36,10 +41,10 @@ class Weatherapp(tk.Tk):
         
         #Drop down Menu
         logging.debug("Creating and packing Dropdown")
-        options = ["Monday"," Tuesday", "Wednesday", "Thursday","Friday","Saturday","Wednesday"]
-        clicked = tk.StringVar()
-        clicked.set("Monday")
-        self.dropdown = tk.OptionMenu(self.Dpframe, clicked, *options)
+        days_of_week = ["Monday"," Tuesday", "Wednesday", "Thursday","Friday","Saturday","Wednesday"]
+        day_var = tk.StringVar()
+        day_var.set("Monday")
+        self.dropdown = tk.OptionMenu(self.Dpframe, day_var, *days_of_week)
         self.dropdown.place(height= self.Dpframe.winfo_height(),width = self.Dpframe.winfo_width(),in_=self.Dpframe, )
         self.dropdown.config(bg='#E4080A', relief= RAISED,)
         logging.debug(f"Dropdown created with properties: bg={self.dropdown.cget('bg')}, \
@@ -127,17 +132,6 @@ class Weatherapp(tk.Tk):
         #self.L15.configure(fg="black")
         #logging.debug(f"Created Storm warning label")
 
-
-
-
-
-        
-    
-    
-    
-    
-    
-    
     
     
     def add_background(self):
